@@ -1,8 +1,6 @@
 import React, { useState, useRef } from "react";
-import { Canvas, useFrame, useThree, extend } from "react-three-fiber";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-
-extend({ OrbitControls });
+import { Canvas, useFrame, useThree } from "react-three-fiber";
+import { HTML, OrbitControls } from "drei";
 
 function Box(props) {
   const mesh = useRef();
@@ -21,6 +19,9 @@ function Box(props) {
       onPointerOver={(e) => setHover(true)}
       onPointerOut={(e) => setHover(false)}
     >
+      <HTML>
+        <h1>Hello</h1>
+      </HTML>
       <boxBufferGeometry attach="geometry" args={[1, 1, 1]} />
       <meshStandardMaterial
         attach="material"
@@ -43,7 +44,7 @@ function Scene() {
       <Box position={[-1.2, 0, 0]} />
       <Box position={[1.2, 0, 0]} />
       <Box position={[0, 1.2, 1]} />
-      <orbitControls args={[camera, domElement]} />
+      <OrbitControls args={[camera, domElement]} />
     </>
   );
 }
