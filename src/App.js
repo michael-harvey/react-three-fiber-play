@@ -1,8 +1,8 @@
 import React, { useState, useRef } from "react";
-import { Canvas, useFrame, useThree } from "react-three-fiber";
+import { Canvas, useFrame, useThree, extend } from "react-three-fiber";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
-const orbitControls = new OrbitControls(camera, renderer.domElement);
+extend({ OrbitControls });
 
 function Box(props) {
   const mesh = useRef();
